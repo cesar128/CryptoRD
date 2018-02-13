@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<h2>{{ trusted }}'s reputation: <strong>{{ numeros }}</strong></h2>
+<table border="1">
+    <tr>
+        <th>Fecha</th>
+        <th>Usuario</th>
+        <th>Mensaje</th>
+        <th>Id</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.fecha }} </td>
+        <td>{{ user.username }} </td>
+        <td>
+            {% if user.mensaje is defined %}
+            {{ user.mensaje }}
+            {% else %}
+            N/A
+            {% endif %}
+        </td>
+        <td>{{ user.id }} </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
